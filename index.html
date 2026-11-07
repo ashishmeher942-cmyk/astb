@@ -1,0 +1,1626 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diwali Wonderland - Dr. Arpita</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --gold:#ffd66b;
+ --orange:#ff8c22;
+ --pink:#ff6c9d;
+ --dark:#160608;
+ --cream:#fff0c9;
+}
+
+body{
+ background:radial-gradient(ellipse at top,#57200f,#21080b,#070204);
+ color:var(--cream);
+ font-family:Georgia,serif;
+ min-height:100vh;
+ overflow-x:hidden;
+ text-align:center;
+}
+
+#fx{
+ position:fixed;
+ inset:0;
+ width:100%;
+ height:100%;
+ pointer-events:none;
+ z-index:10;
+}
+
+.stars{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:0;
+}
+
+.star{
+ position:absolute;
+ color:gold;
+ animation:twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle{
+ to{opacity:.2;transform:scale(.5)}
+}
+
+header{
+ position:relative;
+ z-index:20;
+ padding:18px 10px;
+ background:#160507dd;
+ border-bottom:1px solid #bd802c;
+}
+
+.logo{
+ color:var(--gold);
+ font-size:22px;
+ letter-spacing:2px;
+}
+
+nav{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:15px;
+}
+
+nav button,.btn{
+ background:linear-gradient(135deg,#ff9b24,#ffe18a);
+ color:#4c1605;
+ border:0;
+ border-radius:25px;
+ padding:11px 17px;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.25s;
+}
+
+nav button:hover,.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:0 0 20px orange;
+}
+
+nav button.active{
+ background:linear-gradient(135deg,#fff1ae,#ffbd45);
+ box-shadow:0 0 15px gold;
+}
+
+.page{
+ display:none;
+ position:relative;
+ z-index:2;
+ min-height:78vh;
+ padding:35px 15px 60px;
+ animation:pageIn .5s ease;
+}
+
+.page.active{display:block}
+
+@keyframes pageIn{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+ font-size:clamp(35px,8vw,68px);
+ color:var(--gold);
+ text-shadow:0 0 15px orange,0 0 40px red;
+ margin:18px 0;
+}
+
+h2{
+ color:var(--gold);
+ margin:22px 0 15px;
+}
+
+p{
+ line-height:1.8;
+}
+
+.hero-diya{
+ font-size:90px;
+ animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+ to{filter:drop-shadow(0 0 30px gold)}
+}
+
+.card{
+ max-width:720px;
+ margin:25px auto;
+ padding:27px 20px;
+ background:linear-gradient(145deg,#ffffff14,#ffad2510);
+ border:1px solid #e4b14d;
+ border-radius:22px;
+ box-shadow:0 0 25px #b75c2433;
+ line-height:1.9;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ gap:15px;
+ max-width:950px;
+ margin:25px auto;
+}
+
+.tile{
+ padding:22px 10px;
+ background:linear-gradient(145deg,#64220f,#27080c);
+ border:1px solid #d69b42;
+ border-radius:17px;
+ cursor:pointer;
+ transition:.3s;
+ box-shadow:inset 0 0 15px #ffcc3322;
+ user-select:none;
+}
+
+.tile:hover{
+ transform:translateY(-6px);
+ box-shadow:0 0 22px orange;
+}
+
+.tile span{
+ display:block;
+ font-size:45px;
+ margin-bottom:10px;
+}
+
+.tile p{font-size:14px}
+
+.section-note{
+ color:#ffd99b;
+ margin:10px auto 20px;
+}
+
+footer{
+ position:relative;
+ z-index:2;
+ padding:25px;
+ color:#e9c477;
+ line-height:2;
+ border-top:1px solid #8b572c;
+}
+
+.status{
+ color:#ffe8a5;
+ margin:15px auto;
+ font-size:16px;
+}
+
+.gift-content{
+ display:none;
+ padding:25px;
+ max-width:650px;
+ margin:20px auto;
+ background:#57200f;
+ border:2px solid gold;
+ border-radius:20px;
+ animation:pageIn .5s;
+}
+
+.gift-content.show{display:block}
+
+.toys{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(85px,1fr));
+ gap:12px;
+ margin:20px auto;
+}
+
+.toy{
+ background:#ffffff13;
+ padding:12px 5px;
+ border-radius:12px;
+ font-size:37px;
+ animation:pop .6s both;
+}
+
+.toy p{font-size:12px}
+
+@keyframes pop{
+ from{transform:scale(0)}
+ to{transform:scale(1)}
+}
+
+.lantern{
+ position:fixed;
+ bottom:-100px;
+ font-size:40px;
+ pointer-events:none;
+ animation:fly 12s linear forwards;
+ z-index:2;
+}
+
+@keyframes fly{
+ to{transform:translateY(-120vh);opacity:0}
+}
+
+/* GAMES */
+
+.gamebox{
+ max-width:600px;
+ margin:20px auto;
+ padding:25px 15px;
+ background:#ffffff0d;
+ border:1px solid #d8a445;
+ border-radius:20px;
+ box-shadow:0 0 20px #ff9a2422;
+}
+
+.playfield{
+ position:relative;
+ height:260px;
+ overflow:hidden;
+ background:radial-gradient(circle,#40170e,#130609);
+ border:1px solid #a36d32;
+ border-radius:15px;
+ margin:15px auto;
+ touch-action:manipulation;
+}
+
+.balloon{
+ position:absolute;
+ font-size:42px;
+ cursor:pointer;
+ user-select:none;
+ animation:balloonFloat 3s infinite alternate;
+}
+
+@keyframes balloonFloat{
+ to{transform:translateY(-12px)}
+}
+
+.diya-game{
+ font-size:43px;
+ display:inline-block;
+ margin:8px;
+ cursor:pointer;
+ filter:grayscale(1);
+ transition:.3s;
+}
+
+.diya-game.lit{
+ filter:none;
+ text-shadow:0 0 20px orange;
+ transform:scale(1.15);
+}
+
+.rangoli-board{
+ width:min(290px,80vw);
+ aspect-ratio:1;
+ margin:20px auto;
+ border:3px solid gold;
+ border-radius:50%;
+ background:#32100e;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.rangoli-center{
+ font-size:65px;
+}
+
+.rangoli-dot{
+ position:absolute;
+ font-size:25px;
+ transform:translate(-50%,-50%);
+}
+
+.colors{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:10px;
+ margin:15px;
+}
+
+.color{
+ width:35px;
+ height:35px;
+ border-radius:50%;
+ border:2px solid white;
+ cursor:pointer;
+}
+
+.game-result{
+ color:#ffe48c;
+ font-size:19px;
+ margin:15px;
+ min-height:30px;
+}
+
+.timer{
+ color:#ffdc71;
+ font-size:22px;
+ font-weight:bold;
+}
+
+#catchfield{
+ height:300px;
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(#170819,#3c160e);
+ border-radius:15px;
+ border:1px solid gold;
+}
+
+.falling{
+ position:absolute;
+ font-size:32px;
+ cursor:pointer;
+}
+
+#giftResult{
+ line-height:1.9;
+}
+
+.small{
+ color:#ffd99b;
+ font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="fx"></canvas>
+<div class="stars" id="stars"></div>
+
+<header>
+ <div class="logo">🪔 DIWALI WONDERLAND 🪔</div>
+
+ <nav>
+  <button class="active" onclick="showPage('home',this)">🏠 Home</button>
+  <button onclick="showPage('crackers',this)">🎆 Crackers</button>
+  <button onclick="showPage('gifts',this)">🎁 Gifts</button>
+  <button onclick="showPage('games',this)">🎮 Games</button>
+ </nav>
+</header>
+
+
+<!-- PAGE 1 : HOME -->
+
+<section class="page active" id="home">
+
+ <div class="hero-diya">🪔</div>
+
+ <h1>Happy Diwali,<br>Dr. Arpita!</h1>
+
+ <p class="section-note">
+  A magical festival of lights, happiness and beautiful memories ❤️
+ </p>
+
+ <div class="card">
+
+  <h2>✨ Dear Dr. Arpita ✨</h2>
+
+  <p>
+   May this beautiful festival of lights bring endless
+   happiness, peace and positivity into your life.
+  </p>
+
+  <p>
+   May every diya illuminate your dreams,
+   every sparkle bring a reason to smile,
+   and every new morning bring you closer
+   to everything you wish for.
+  </p>
+
+  <p>
+   May your life shine brighter than a thousand diyas,
+   your dreams fly higher than colourful rockets,
+   and your happiness sparkle like the brightest fireworks.
+  </p>
+
+  <p>
+   May Goddess Lakshmi bless you with happiness,
+   success, good health and endless opportunities.
+  </p>
+
+  <p>
+   No matter how challenging the journey gets,
+   never stop believing in yourself.
+   Keep shining and keep being the wonderful person you are.
+  </p>
+
+  <p>
+   Wishing you a Diwali filled with countless beautiful
+   moments and unforgettable memories.
+  </p>
+
+  <h2>💝 Wishing You A Magical Diwali! 💝</h2>
+
+ </div>
+
+ <div style="font-size:45px">
+  🪔 🌸 🎇 🌺 🪔
+ </div>
+
+ <button class="btn" onclick="grandShow()">
+  ✨ Start Grand Celebration ✨
+ </button>
+
+ <br><br>
+
+ <button class="btn" onclick="showPage('crackers')">
+  Explore Crackers →
+ </button>
+
+</section>
+
+
+<!-- PAGE 2 : CRACKERS -->
+
+<section class="page" id="crackers">
+
+ <h1>🎆 Crackers Carnival 🎆</h1>
+
+ <p class="section-note">
+  Touch each decoration to enjoy its colourful virtual celebration!
+ </p>
+
+ <div class="grid">
+
+  <div class="tile" data-fx="sparkler">
+   <span>✨</span>
+   Golden Sparklers
+  </div>
+
+  <div class="tile" data-fx="chakri">
+   <span>🌀</span>
+   Ground Chakkars
+  </div>
+
+  <div class="tile" data-fx="fountain">
+   <span>🌋</span>
+   Flower Pots
+  </div>
+
+  <div class="tile" data-fx="star">
+   <span>⭐</span>
+   Twinkling Stars
+  </div>
+
+  <div class="tile" data-fx="bomb">
+   <span>💥</span>
+   Cartoon Bomb Effects
+  </div>
+
+  <div class="tile" data-fx="rocket">
+   <span>🚀</span>
+   Sky Rockets
+  </div>
+
+  <div class="tile" data-fx="bijili">
+   <span>🎇</span>
+   Bijili Sparkles
+  </div>
+
+  <div class="tile" data-fx="aerial">
+   <span>🎆</span>
+   Multicolour Aerial Shots
+  </div>
+
+  <div class="tile" data-fx="lantern">
+   <span>🏮</span>
+   Sky Lanterns
+  </div>
+
+  <div class="tile" data-fx="golden">
+   <span>🌟</span>
+   Golden Willow
+  </div>
+
+  <div class="tile" data-fx="heart">
+   <span>💖</span>
+   Heart Fireworks
+  </div>
+
+  <div class="tile" data-fx="rainbow">
+   <span>🌈</span>
+   Rainbow Fireworks
+  </div>
+
+ </div>
+
+ <div class="gamebox">
+  <h2>🎇 Fireworks Control</h2>
+  <p>Tap the button to launch a colourful virtual fireworks display.</p>
+  <button class="btn" onclick="grandShow()">Launch Fireworks</button>
+  <button class="btn" onclick="stopShow()">Pause Display</button>
+ </div>
+
+ <button class="btn" onclick="showPage('gifts')">Go To Gifts →</button>
+
+</section>
+
+
+<!-- PAGE 3 : GIFTS -->
+
+<section class="page" id="gifts">
+
+ <h1>🎁 Magical Gift Gallery 🎁</h1>
+
+ <p class="section-note">
+  Four different gifts, four beautiful surprises!
+  Open each one individually.
+ </p>
+
+ <div class="grid">
+
+  <div class="tile" onclick="openGift(1,this)">
+   <span>🎁</span>
+   Gift 1 - Flowers
+   <p>Open your flower surprise</p>
+  </div>
+
+  <div class="tile" onclick="openGift(2,this)">
+   <span>🎀</span>
+   Gift 2 - Toys
+   <p>Open your cute toy collection</p>
+  </div>
+
+  <div class="tile" onclick="openGift(3,this)">
+   <span>💝</span>
+   Gift 3 - Chocolates
+   <p>Open your sweet surprise</p>
+  </div>
+
+  <div class="tile" onclick="openGift(4,this)">
+   <span>👑</span>
+   Gift 4 - Special
+   <p>Open your special message</p>
+  </div>
+
+ </div>
+
+ <div class="gift-content" id="gift1">
+  <h2>🌹 A Box Of Beautiful Flowers 🌹</h2>
+  <div class="toys">
+   <div class="toy">🌹<p>Roses</p></div>
+   <div class="toy">🌻<p>Sunflowers</p></div>
+   <div class="toy">🌷<p>Tulips</p></div>
+   <div class="toy">🌸<p>Cherry Blossoms</p></div>
+   <div class="toy">💐<p>Bouquet</p></div>
+   <div class="toy">🌺<p>Hibiscus</p></div>
+  </div>
+  <p>
+   May your life bloom with happiness,
+   success and beautiful memories.
+   Keep smiling, Dr. Arpita!
+  </p>
+ </div>
+
+ <div class="gift-content" id="gift2">
+  <h2>🧸 Cute Toy Collection 🧸</h2>
+  <div class="toys">
+   <div class="toy">🧸<p>Teddy</p></div>
+   <div class="toy">🐰<p>Bunny</p></div>
+   <div class="toy">🐼<p>Panda</p></div>
+   <div class="toy">🐱<p>Kitten</p></div>
+   <div class="toy">🦄<p>Unicorn</p></div>
+   <div class="toy">🐥<p>Chick</p></div>
+   <div class="toy">🐶<p>Puppy</p></div>
+   <div class="toy">🐻<p>Bear</p></div>
+  </div>
+  <p>
+   A little collection of cuteness to make
+   your Diwali extra special!
+  </p>
+ </div>
+
+ <div class="gift-content" id="gift3">
+  <h2>🍫 A Box Of Sweetness 🍫</h2>
+  <div class="toys">
+   <div class="toy">🍫<p>Chocolate</p></div>
+   <div class="toy">🍰<p>Cake</p></div>
+   <div class="toy">🍬<p>Candy</p></div>
+   <div class="toy">🍓<p>Strawberry</p></div>
+   <div class="toy">🍩<p>Donut</p></div>
+   <div class="toy">🍭<p>Lollipop</p></div>
+   <div class="toy">💖<p>Hearts</p></div>
+   <div class="toy">🎀<p>Ribbon</p></div>
+  </div>
+  <p>
+   May your days be as sweet as chocolates
+   and as colourful as a rainbow!
+  </p>
+ </div>
+
+ <div class="gift-content" id="gift4">
+  <h2>👑 A Special Gift For You 👑</h2>
+  <div class="toys">
+   <div class="toy">👑<p>Queen Crown</p></div>
+   <div class="toy">💎<p>Gem</p></div>
+   <div class="toy">🦋<p>Butterfly</p></div>
+   <div class="toy">✨<p>Magic</p></div>
+  </div>
+  <p>
+   Dear Dr. Arpita,
+   if I could gift you one thing this Diwali,
+   it would be a year full of happiness,
+   confidence, beautiful opportunities
+   and countless reasons to smile.
+  </p>
+  <p>
+   May all your dreams come true,
+   may success follow your efforts,
+   and may your beautiful smile never fade.
+  </p>
+  <h2>❤️ Stay Happy & Keep Shining! ❤️</h2>
+ </div>
+
+ <button class="btn" onclick="showPage('games')">Go To Games →</button>
+
+</section>
+
+
+<!-- PAGE 4 : GAMES -->
+
+<section class="page" id="games">
+
+ <h1>🎮 Diwali Fun Zone 🎮</h1>
+
+ <p class="section-note">
+  Let's play some festive games, Dr. Arpita!
+ </p>
+
+
+ <!-- GAME 1 -->
+
+ <div class="gamebox">
+
+  <h2>🎯 Game 1 - Crack The Balloons</h2>
+
+  <p>Tap the balloons and collect points!</p>
+
+  <p class="status">Score: <span id="balloonScore">0</span></p>
+
+  <p class="timer">Time: <span id="balloonTime">20</span>s</p>
+
+  <div class="playfield" id="balloonField"></div>
+
+  <button class="btn" onclick="startBalloons()">Start Game</button>
+
+  <p class="game-result" id="balloonResult"></p>
+
+ </div>
+
+
+ <!-- GAME 2 -->
+
+ <div class="gamebox">
+
+  <h2>🪔 Game 2 - Light The Diyas</h2>
+
+  <p>Tap all ten diyas to illuminate the celebration!</p>
+
+  <div id="diyaField">
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <br>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+   <span class="diya-game" onclick="lightDiya(this)">🪔</span>
+  </div>
+
+  <p class="game-result" id="diyaResult">0 / 10 Diyas Lit</p>
+
+  <button class="btn" onclick="resetDiyas()">Reset Diyas</button>
+
+ </div>
+
+
+ <!-- GAME 3 -->
+
+ <div class="gamebox">
+
+  <h2>🎨 Game 3 - Rangoli Maker</h2>
+
+  <p>Choose a colour and tap the circle to decorate your rangoli!</p>
+
+  <div class="colors">
+   <div class="color" style="background:#ff3366" onclick="chooseColor('#ff3366')"></div>
+   <div class="color" style="background:#ffcc00" onclick="chooseColor('#ffcc00')"></div>
+   <div class="color" style="background:#00e5ff" onclick="chooseColor('#00e5ff')"></div>
+   <div class="color" style="background:#a855f7" onclick="chooseColor('#a855f7')"></div>
+   <div class="color" style="background:#52ff87" onclick="chooseColor('#52ff87')"></div>
+   <div class="color" style="background:#ff8ac8" onclick="chooseColor('#ff8ac8')"></div>
+  </div>
+
+  <div class="rangoli-board" id="rangoli">
+   <div class="rangoli-center">🪔</div>
+  </div>
+
+  <button class="btn" onclick="clearRangoli()">Clear Rangoli</button>
+
+  <p class="game-result" id="rangoliResult">Create your masterpiece!</p>
+
+ </div>
+
+
+ <!-- GAME 4 -->
+
+ <div class="gamebox">
+
+  <h2>🎁 Game 4 - Lucky Gift Picker</h2>
+
+  <p>Choose one of the mystery gift boxes!</p>
+
+  <div class="grid">
+
+   <div class="tile" onclick="luckyGift(0)">
+    <span>🎁</span> Box A
+   </div>
+
+   <div class="tile" onclick="luckyGift(1)">
+    <span>🎀</span> Box B
+   </div>
+
+   <div class="tile" onclick="luckyGift(2)">
+    <span>💝</span> Box C
+   </div>
+
+  </div>
+
+  <div class="game-result" id="giftResult">
+   Your lucky gift is waiting!
+  </div>
+
+ </div>
+
+
+ <!-- GAME 5 -->
+
+ <div class="gamebox">
+
+  <h2>⭐ Game 5 - Catch The Stars</h2>
+
+  <p>Tap the falling stars and collect as many as possible!</p>
+
+  <p class="status">Score: <span id="starScore">0</span></p>
+
+  <p class="timer">Time: <span id="starTime">20</span>s</p>
+
+  <div id="catchfield"></div>
+
+  <button class="btn" onclick="startStars()">Start Catching</button>
+
+  <p class="game-result" id="starResult"></p>
+
+ </div>
+
+ <h2>🏆 You Are The Diwali Champion! 🏆</h2>
+
+ <p>Thank you for celebrating this magical festival!</p>
+
+ <button class="btn" onclick="grandShow()">Final Fireworks 🎆</button>
+
+</section>
+
+
+<footer>
+ 🪔 शुभ दीपावली 🪔
+ <br>
+ Made with love, warm wishes and lots of sparkle.
+ <br>
+ Specially for Dr. Arpita ❤️
+</footer>
+
+
+<script>
+
+// NAVIGATION
+
+function showPage(id,button){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(id).classList.add("active");
+
+document.querySelectorAll("nav button").forEach(b=>{
+b.classList.remove("active");
+});
+
+if(button) button.classList.add("active");
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+
+// BACKGROUND STARS
+
+for(let i=0;i<100;i++){
+
+let s=document.createElement("span");
+
+s.className="star";
+s.textContent="✦";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+s.style.fontSize=(7+Math.random()*14)+"px";
+s.style.animationDelay=Math.random()*3+"s";
+
+document.getElementById("stars").appendChild(s);
+
+}
+
+
+// FIREWORK ENGINE
+
+const canvas=document.getElementById("fx");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+let rockets=[];
+let running=true;
+
+let W,H,DPR;
+
+const palette=[
+"#ffcc00","#ff3366","#00ffff",
+"#ff6600","#ffffff","#cc66ff",
+"#66ff99","#ff1493","#ff9900",
+"#aaff00","#ff80c0"
+];
+
+function resize(){
+
+DPR=Math.min(devicePixelRatio||1,2);
+
+W=innerWidth;
+H=innerHeight;
+
+canvas.width=W*DPR;
+canvas.height=H*DPR;
+
+ctx.setTransform(DPR,0,0,DPR,0,0);
+
+}
+
+resize();
+window.addEventListener("resize",resize);
+
+
+function addParticle(x,y,vx,vy,color,life,size){
+
+particles.push({
+x,y,vx,vy,color,life,max:life,size
+});
+
+}
+
+
+// REALISTIC-STYLE FIREWORK BURST
+
+function burst(x,y,count=100,color){
+
+let c=color||palette[Math.floor(Math.random()*palette.length)];
+
+for(let i=0;i<count;i++){
+
+let angle=Math.PI*2*i/count;
+let speed=Math.random()*5+1;
+
+addParticle(
+x,y,
+Math.cos(angle)*speed,
+Math.sin(angle)*speed,
+c,
+90+Math.random()*50,
+Math.random()*2+1
+);
+
+}
+
+}
+
+
+// CHRYSANTHEMUM FIREWORK
+
+function chrysanthemum(x,y){
+
+for(let i=0;i<180;i++){
+
+let angle=Math.random()*Math.PI*2;
+let speed=Math.random()*6+1;
+
+addParticle(
+x,y,
+Math.cos(angle)*speed,
+Math.sin(angle)*speed,
+palette[Math.floor(Math.random()*palette.length)],
+100,
+Math.random()*2+1
+);
+
+}
+
+}
+
+
+// GOLDEN WILLOW
+
+function goldenWillow(x,y){
+
+for(let i=0;i<130;i++){
+
+let a=Math.random()*Math.PI*2;
+let s=Math.random()*4+1;
+
+addParticle(
+x,y,
+Math.cos(a)*s,
+Math.sin(a)*s,
+"#ffd45b",
+150,
+2
+);
+
+}
+
+}
+
+
+// FOUNTAIN
+
+function fountain(x,y){
+
+for(let i=0;i<100;i++){
+
+addParticle(
+x+(Math.random()-.5)*20,
+y,
+(Math.random()-.5)*3,
+-Math.random()*8-2,
+"#ffbf45",
+100,
+2
+);
+
+}
+
+}
+
+
+// SPARKLERS
+
+function sparkler(x,y){
+
+for(let i=0;i<65;i++){
+
+addParticle(
+x,y,
+(Math.random()-.5)*9,
+(Math.random()-.5)*9,
+palette[Math.floor(Math.random()*palette.length)],
+35,
+Math.random()*3+1
+);
+
+}
+
+}
+
+
+// ROCKET
+
+function launchRocket(x,y){
+
+rockets.push({
+x,
+y:H,
+target:Math.max(50,y),
+speed:10
+});
+
+}
+
+
+// ANIMATION
+
+function animate(){
+
+ctx.clearRect(0,0,W,H);
+
+if(running){
+
+for(let i=rockets.length-1;i>=0;i--){
+
+let r=rockets[i];
+
+r.y-=r.speed;
+
+addParticle(
+r.x,r.y,
+0,2,
+"#ffcf66",
+20,
+2
+);
+
+if(r.y<=r.target){
+
+chrysanthemum(r.x,r.y);
+rockets.splice(i,1);
+
+}
+
+}
+
+for(let i=particles.length-1;i>=0;i--){
+
+let p=particles[i];
+
+p.x+=p.vx;
+p.y+=p.vy;
+
+p.vy+=.035;
+p.vx*=.985;
+
+p.life--;
+
+ctx.globalAlpha=Math.max(0,p.life/p.max);
+
+ctx.fillStyle=p.color;
+ctx.shadowBlur=12;
+ctx.shadowColor=p.color;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+if(p.life<=0)particles.splice(i,1);
+
+}
+
+}
+
+ctx.globalAlpha=1;
+ctx.shadowBlur=0;
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+// CRACKER INTERACTIONS
+
+document.querySelectorAll("[data-fx]").forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+let r=item.getBoundingClientRect();
+let x=r.left+r.width/2;
+let y=r.top+r.height/2;
+
+switch(item.dataset.fx){
+
+case "sparkler":
+sparkler(x,y);
+break;
+
+case "chakri":
+for(let i=0;i<3;i++)
+setTimeout(()=>burst(x,y,50),i*180);
+break;
+
+case "fountain":
+fountain(x,y);
+fountain(x,y);
+break;
+
+case "star":
+goldenWillow(x,y);
+break;
+
+case "bomb":
+burst(x,y,130);
+break;
+
+case "rocket":
+launchRocket(x,y);
+break;
+
+case "bijili":
+sparkler(x,y);
+burst(x,y,40);
+break;
+
+case "aerial":
+for(let i=0;i<6;i++)
+setTimeout(()=>{
+chrysanthemum(
+Math.random()*W,
+Math.random()*H*.55
+);
+},i*250);
+break;
+
+case "lantern":
+createLantern(x);
+break;
+
+case "golden":
+goldenWillow(x,y);
+break;
+
+case "heart":
+heartBurst(x,y);
+break;
+
+case "rainbow":
+for(let i=0;i<7;i++)
+setTimeout(()=>burst(
+Math.random()*W,
+Math.random()*H*.5,
+90,
+palette[i]
+),i*200);
+break;
+
+}
+
+});
+
+});
+
+
+// HEART FIREWORKS
+
+function heartBurst(x,y){
+
+for(let i=0;i<180;i++){
+
+let t=i/180*Math.PI*2;
+
+let hx=16*Math.pow(Math.sin(t),3);
+let hy=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));
+
+addParticle(
+x,y,
+hx*.3,
+hy*.3,
+"#ff4f91",
+100,
+2
+);
+
+}
+
+}
+
+
+// FLOATING LANTERNS
+
+function createLantern(x){
+
+let el=document.createElement("div");
+
+el.className="lantern";
+el.textContent="🏮";
+el.style.left=x+"px";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),12000);
+
+}
+
+setInterval(()=>{
+createLantern(Math.random()*W);
+},5000);
+
+
+// GRAND CELEBRATION
+
+function grandShow(){
+
+for(let i=0;i<20;i++){
+
+setTimeout(()=>{
+
+let x=Math.random()*W;
+let y=Math.random()*H*.55;
+
+if(i%3===0)goldenWillow(x,y);
+else if(i%3===1)chrysanthemum(x,y);
+else burst(x,y,110);
+
+},i*220);
+
+}
+
+for(let i=0;i<6;i++){
+
+setTimeout(()=>createLantern(Math.random()*W),i*400);
+
+}
+
+}
+
+function stopShow(){
+
+running=false;
+
+setTimeout(()=>{
+particles=[];
+rockets=[];
+running=true;
+},2000);
+
+}
+
+
+// INDIVIDUAL GIFTS
+
+function openGift(n,box){
+
+document.querySelectorAll(".gift-content").forEach(g=>{
+g.classList.remove("show");
+});
+
+let gift=document.getElementById("gift"+n);
+
+gift.classList.add("show");
+
+box.style.borderColor="#8cffad";
+box.querySelector("span").textContent="🎉";
+
+for(let i=0;i<4;i++){
+
+setTimeout(()=>{
+chrysanthemum(Math.random()*W,Math.random()*H*.5);
+},i*250);
+
+}
+
+gift.scrollIntoView({behavior:"smooth",block:"center"});
+
+}
+
+
+// GAME 1 - BALLOONS
+
+let balloonScore=0;
+let balloonInterval=null;
+let balloonTimer=null;
+let balloonPlaying=false;
+
+function startBalloons(){
+
+clearInterval(balloonInterval);
+clearInterval(balloonTimer);
+
+balloonScore=0;
+balloonPlaying=true;
+
+document.getElementById("balloonScore").textContent=0;
+document.getElementById("balloonTime").textContent=20;
+document.getElementById("balloonResult").textContent="Catch as many balloons as you can!";
+
+let field=document.getElementById("balloonField");
+field.innerHTML="";
+
+function addBalloon(){
+
+if(!balloonPlaying)return;
+
+let b=document.createElement("span");
+
+b.className="balloon";
+b.textContent=["🎈","🎈","💗","🎈"][Math.floor(Math.random()*4)];
+
+b.style.left=Math.random()*85+"%";
+b.style.top=Math.random()*80+"%";
+
+b.onclick=()=>{
+
+if(!balloonPlaying)return;
+
+balloonScore+=10;
+
+document.getElementById("balloonScore").textContent=balloonScore;
+
+let r=b.getBoundingClientRect();
+burst(r.left,r.top,20);
+
+b.remove();
+
+};
+
+field.appendChild(b);
+
+setTimeout(()=>b.remove(),2000);
+
+}
+
+balloonInterval=setInterval(addBalloon,550);
+
+let time=20;
+
+balloonTimer=setInterval(()=>{
+
+time--;
+
+document.getElementById("balloonTime").textContent=time;
+
+if(time<=0){
+
+clearInterval(balloonTimer);
+clearInterval(balloonInterval);
+
+balloonPlaying=false;
+
+document.getElementById("balloonResult").textContent=
+"🎉 Game over! Your score: "+balloonScore;
+
+}
+
+},1000);
+
+}
+
+
+// GAME 2 - DIYAS
+
+function lightDiya(el){
+
+if(el.classList.contains("lit"))return;
+
+el.classList.add("lit");
+
+let total=document.querySelectorAll(".diya-game.lit").length;
+
+document.getElementById("diyaResult").textContent=
+total+" / 10 Diyas Lit";
+
+if(total===10){
+
+document.getElementById("diyaResult").textContent=
+"🏆 Congratulations! All diyas are glowing!";
+
+grandShow();
+
+}
+
+}
+
+function resetDiyas(){
+
+document.querySelectorAll(".diya-game").forEach(d=>{
+d.classList.remove("lit");
+});
+
+document.getElementById("diyaResult").textContent="0 / 10 Diyas Lit";
+
+}
+
+
+// GAME 3 - RANGOLI
+
+let rangoliColor="#ff3366";
+
+function chooseColor(c){
+
+rangoliColor=c;
+
+document.getElementById("rangoliResult").textContent=
+"Selected colour: "+c;
+
+}
+
+let rangoliCount=0;
+
+function addRangoli(){
+
+let board=document.getElementById("rangoli");
+
+let dot=document.createElement("span");
+
+dot.className="rangoli-dot";
+dot.textContent="✿";
+
+let angle=rangoliCount*137.5*Math.PI/180;
+
+let radius=25+(rangoliCount%5)*20;
+
+let cx=50+Math.cos(angle)*radius;
+let cy=50+Math.sin(angle)*radius;
+
+dot.style.left=cx+"%";
+dot.style.top=cy+"%";
+dot.style.color=rangoliColor;
+dot.style.textShadow="0 0 10px "+rangoliColor;
+
+board.appendChild(dot);
+
+rangoliCount++;
+
+document.getElementById("rangoliResult").textContent=
+"Beautiful! "+rangoliCount+" decorations added.";
+
+if(rangoliCount>=20){
+
+document.getElementById("rangoliResult").textContent=
+"🌸 Your rangoli masterpiece is complete!";
+
+}
+
+}
+
+document.getElementById("rangoli").onclick=addRangoli;
+
+function clearRangoli(){
+
+document.querySelectorAll(".rangoli-dot").forEach(d=>d.remove());
+
+rangoliCount=0;
+
+document.getElementById("rangoliResult").textContent=
+"Start your new rangoli!";
+
+}
+
+
+// GAME 4 - LUCKY GIFT
+
+let luckyUsed=false;
+
+function luckyGift(n){
+
+if(luckyUsed){
+
+document.getElementById("giftResult").textContent=
+"You have already chosen your lucky gift! ❤️";
+
+return;
+
+}
+
+luckyUsed=true;
+
+let prizes=[
+"🧸 You won a magical teddy bear!",
+"💝 You won a box of endless happiness!",
+"🍫 You won unlimited virtual chocolates!"
+];
+
+document.getElementById("giftResult").innerHTML=
+"<h2>"+prizes[n]+"</h2><p>Happy Diwali, Dr. Arpita! ✨</p>";
+
+grandShow();
+
+}
+
+
+// GAME 5 - CATCH STARS
+
+let starScore=0;
+let starTime=20;
+let starInterval=null;
+let starTimer=null;
+let starPlaying=false;
+
+function startStars(){
+
+clearInterval(starInterval);
+clearInterval(starTimer);
+
+starScore=0;
+starTime=20;
+starPlaying=true;
+
+document.getElementById("starScore").textContent=0;
+document.getElementById("starTime").textContent=20;
+document.getElementById("starResult").textContent="Catch the stars!";
+
+let field=document.getElementById("catchfield");
+field.innerHTML="";
+
+function dropStar(){
+
+if(!starPlaying)return;
+
+let s=document.createElement("span");
+
+s.className="falling";
+s.textContent="⭐";
+
+s.style.left=Math.random()*90+"%";
+s.style.top="-35px";
+
+field.appendChild(s);
+
+let position=-35;
+
+let fall=setInterval(()=>{
+
+position+=3;
+
+s.style.top=position+"px";
+
+if(position>310){
+
+clearInterval(fall);
+s.remove();
+
+}
+
+},40);
+
+s.onclick=()=>{
+
+if(!starPlaying)return;
+
+starScore+=5;
+
+document.getElementById("starScore").textContent=starScore;
+
+let r=s.getBoundingClientRect();
+
+burst(r.left,r.top,15);
+
+clearInterval(fall);
+s.remove();
+
+};
+
+}
+
+starInterval=setInterval(dropStar,450);
+
+starTimer=setInterval(()=>{
+
+starTime--;
+
+document.getElementById("starTime").textContent=starTime;
+
+if(starTime<=0){
+
+clearInterval(starTimer);
+clearInterval(starInterval);
+
+starPlaying=false;
+
+field.innerHTML="";
+
+document.getElementById("starResult").textContent=
+"🌟 Your final score: "+starScore;
+
+}
+
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
